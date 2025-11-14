@@ -20,7 +20,7 @@ public class Main2 {
     public static void main(String[] args) {
         String [] palabras = {"datos", "cosas", "lucia", "manta"};
         String palabraSecreta = palabras[(int)(Math.random()*4)];
-        System.out.println();
+        System.out.println("me cago en to");
 
 
 
