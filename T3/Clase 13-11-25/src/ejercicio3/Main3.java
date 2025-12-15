@@ -28,24 +28,46 @@ los ingredientes seleccionados) y el total a pagar.
         String ingredientes ="";
         int numeroIngredientes =0;
         int totalPizza=0;
+        int opcionIngrediente;
+        do {
+            System.out.println("1. Queso");
+            System.out.println("2. Jamon");
+            System.out.println("3. Piña");
+            System.out.println("4. Tomate");
+            System.out.println("5. Pepperoni");
+            System.out.println("0. Parar de pedir ");
+            System.out.println("Que ingrediente quieres");
+            opcionIngrediente = scanner.nextInt();
+            switch (opcionIngrediente){
+                case 1->{
+                    totalPizza+= Ingredientes.Queso.precio;
+                    ingredientes += Ingredientes.Queso+"";
+                }
+                case 2->{
+                    totalPizza+=15;
+                    ingredientes += Ingredientes.Jamon+" ";
+                }
+                case 3->{
+                    totalPizza+=8;
+                    ingredientes += Ingredientes.Piña+" ";
+                }
+                case 4->{
+                    totalPizza+=6;
+                    ingredientes += Ingredientes.Tomate+ " ";
+                }
+                case 5->{
+                    totalPizza+=12;
+                    ingredientes += Ingredientes.Pepperoni+" ";
+                }
 
-                do {
-                    System.out.println("1. Queso");
-                    System.out.println("2. Jamon");
-                    System.out.println("3. Piña");
-                    System.out.println("4. Tomate");
-                    System.out.println("5. Peperoni");
-                    System.out.println("parar de pedir ");
-                    System.out.println("Que ingrediente quieres");
-                    int ingrediente = scanner.nextInt();
-                    switch (ingrediente){
+            }
+            numeroIngredientes++;
+            System.out.println("El total de lo q llevas gastado es " +totalPizza);
+            System.out.println("los ingredientes que llevas son " +ingredientes);
 
-                    }
+        }while (numeroIngredientes<5 && opcionIngrediente !=0);
 
-                    System.out.println("El total de lo q llevas gastado el" +totalPizza);
-                    System.out.println("los ingredientes que llevas son" +ingredientes);
 
-                }while (numeroIngredientes<5);
 
 
 
