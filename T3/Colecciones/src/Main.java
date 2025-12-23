@@ -1,129 +1,115 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        int numero =2;
-        //defino el array segun el numero de elementos
-        //int[] numeros =new int[6];
-        // [0,0,0,0,0,0]
-        //   0 1 2 3 4 5 -> posiciones, siempre empizan el 0 como la primera posición
+        Scanner scanner = new Scanner(System.in);
+        int numero = 2;
+        // defino el array segun el numero de elementos
         boolean[] aciertos = new boolean[4];
-        // [false, false, false, false]
-        // **guarda el dato mas basico del tipo correspondiente**, valor primitivo del complejo es no hay valor, nulo
+        // [false,false,false,false]
         String[] palabras = new String[3];
-        // [null, null, null]
+        // [null,null,null]
         Object[] cosas = new Object[5];
-        // [1, false, "hola", 9.1, 'a'] pero de base guardara valores nulos.
-        int[] numerosConcretos = new int[]{5,3,1,10,8};
-        //  [5,3,1,10,8]
-        //   0 1 2 3 4 5 -> posiciones
-        //Integer[] numerosConcretos2 = new Integer[]{1,3,4,5,6,7,8};
-        boolean[] aciertosConcretos = new boolean[]{false, true, false};
+        // [null,null,null,null,null]
+        int[] numerosConcretos = new int[]{5, 3, 1, 10, 8, 23, 12, 32};
+        Integer[] numerosConcretos2 = new Integer[]{1, 3, 4, 5, 6, 7, 8};
+        boolean[] aciertosConcretos = new boolean[]{false, true, true};
         String[] palabrasConcretas = new String[]{"hola", "programacion", "array"};
-        Object[] cosasConcretas = new Object[]{1,"hola" , false, 0.0, 'a'};
-        for (Object item: cosasConcretas){
+        Object[] cosasConcretas = new Object[]{1, "adios", false, 6,0.0,"hola", 'a'};
+        for ( Object item : cosasConcretas){
             if (item instanceof Integer){
                 if ((int)item>0){
-                    System.out.println("el numero es mas grande que 0");
+                    System.out.println("El numero es mas grande que 0");
+                }
+            } else if (item instanceof String) {
+                System.out.println("La longitud de la palabra es "+item.toString().length());
+            }
+        }
+        /*
+        for (int i = 0; i < cosasConcretas.length; i++) {
+            System.out.println("El elemento es "+cosasConcretas[i]);
+        }
+
+         */
+
+        /*
+        // acciones que puedo realizar con los arrays
+        System.out.println("Cuantos numeros vas a querer guardar");
+        int tamanio = scanner.nextInt();
+        int[] numeros = new int[tamanio];
+        // [23,12,11,45,6,41]
+        // guardar numeros aleatorios entre el 1 y el 50
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = (int) (Math.random() * 10) + 1; //1-50
+        }
+        System.out.println("Que numero quieres buscar");
+        int numeroBuscar = scanner.nextInt(); // 23
+        int contador=0;
+        // boolean encontrado = false;
+        int posicion = -1;
+        // pedir al usuario el numero buscado
+        // el sistema deberá decirme el que posicion está el primer 23 encontrado. En caso de no tener 23 me avisa
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] == numeroBuscar){
+                posicion = i;
+                break;
             }
         }
 
-        /*
-
-
-        // acciones que puedo realizar con los arrays
-        int[] numeros =new int[6];
-        // [19,0,0,0,30]
-        //  0 1 2 3 4 5
-        // saber la longitud del array-> cuantos elementos hay en el array
-        int longi = numerosConcretos.length;
-        System.out.println("el numero de elementos del array es "+longi);
-        // modificar valores,
-        numeros[0]=19;
-        numeros[5]=30;
-        // acceder a uno de los elementos, primero y ultimo aquí:
-        System.out.println("el elemento de la primera posicion es "+numeros[0]);
-        System.out.println("el elemento de la posicion central es "+numeros[numeros.length/2]);
-        System.out.println("el elemento de la última posicion es "+numeros[numeros.length-1]);
-        // mostrar todos los elementos del array
-        System.out.println("el elemento de la primera posicion es "+numeros[0]);
-        System.out.println("el elemento de la primera posicion es "+numeros[1]);
-        System.out.println("el elemento de la primera posicion es "+numeros[2]);
-        System.out.println("el elemento de la primera posicion es "+numeros[3]);
-        System.out.println("el elemento de la primera posicion es "+numeros[4]);
-        System.out.println("el elemento de la primera posicion es "+numeros[5]);
-
-
-
-        // Utilizado para poder recorrer un array desde una posicion inicial hasta una final
-        //Utilizado para modificar el valor de las posiciones
-         for (int i=0;i<numeros.length;i++){
-           // if (numeros[i]%2!=0){
-                System.out.printf("el elemento en posicion %d es %d%n", i, numeros[i]);
-            //}
-        }*/
-        /*
-        for (int i = 2; i <numeros.length ; i++) {
-            //if (numeros[i]%2!=0{
-        System.out.println();
-        } */
-        // [19,0,0,0,30]
-        /*int contador =0;
-        for ( int item: numeros){
-            System.out.println("el elemento en iteracion es"+contador );
-            contador++;
-
+        if (posicion==-1){
+            System.out.println("El numero no se encuentra en la coleccion");
+        } else {
+            System.out.println("La posicion encontrada es "+posicion);
         }
-        */
-        /* acciones qu
-        Scanner scanner= new Scanner(System.in);
-        System.out.println("cuantos numeros vas a queres guardar");
-        int tamanio = scanner.nextInt();
-        int[] numeros = new int[tamanio];
-
-
-        for (int i=0; i< numeros.length;i++){
-            numeros[i] = (int) (Math.random()+50)+1; //0-49
-        }
-        System.out.println("que numero queires buscar");
-        int numeroBuscar = scanner.nextInt();
-        int contador=0;
-
-
-        for (int item:numeros){
-            if (item== numeroBuscar){
-                contador++;
-
-
-
-        /*for (int item: numeros){
+        for (int item : numeros) {
             System.out.println(item);
+        }
 
+        /*
+        for (int item : numeros) {
+            if (item == numeroBuscar) {
+                contador++;
+            }
+        }
+        System.out.println("El numero de veces que esta el numero buscado es "+contador);
+        */
+        /*
+        for (int item : numeros) {
+            System.out.println(item);
+        }
+
+        // [19,0,0,0,0,30]
+        //  0 1 2 3 4 5  -> posiciones length -> 6-1
+        // saber la longitud del array -> cuantos elementos hay en el array
+        int longi = numeros.length;
+        System.out.println("El numero de elementos del array es "+longi);
+        // modificar elementos
+        numeros[0] = 19;
+        numeros[numeros.length-1] = 30;
+        // acceder a uno de los elementos
+        System.out.println("El elemento de la primera posicion es "+numeros[0]);
+        System.out.println("El elemento de la posicion central es "+numeros[numeros.length/2]);
+        System.out.println("El elemento de la ultima posicion es "+numeros[numeros.length-1]);
+        // mostrar todos los elementos del array
+
+
+        //Utilizado para poder recorrer un array desde una posicion inicial hasta una final
+        //Utilizado para modificar el valor de las posiciones
+
+        for (int i=2;i<numeros.length;i++){
+            //if (numeros[i]%2!=0){
+                System.out.printf("El elemento en posicion %d es %d%n",i,numeros[i]);
+            //}
+        }
+        // [19,0,0,0,0,30]
+        // Utilizado para recorrer el valor de las posiciones
+        int contador = 0;
+        for ( int item : numeros ){
+            System.out.println("El elemento en iteracion es "+item+" en posicion "+contador);
+            contador++;
         }*/
 
-        //}
-          //  System.out.println(item);*/
-        //pedir al usuario el numero buscado
-        // el sistema debera decirme donde esta el primer 23 encontrad. En caso de no tener 23 me avisa
-        /*System.out.println("cuantos numeros vas a queres guardar");
-        int numeroBuscar = scanner.nextInt();//23
-        int contador=0;
-        boolean encontrado=true;
-        break;
-        for (int i = 0; i < numeros.length; i++) {
 
-        }
-         */
-
-
-
-
-
-
-
-
-
-
-
-        }
+    }
 }

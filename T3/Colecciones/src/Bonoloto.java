@@ -1,41 +1,55 @@
+
+/*
+Realizar el juego de bonoloto.
+Para ello el sistema contara con dos cadenas de numeros
+    - numeros del sistema
+    - numeros del usuario
+De primeras, el sistema guardará 5 numeros aleatorio entre 1-20
+El sistema pedira al usuario que introduzca sus numeros.
+
+El sistema deberá decidir si he ganado un premio. Para ello los premios se reparten de la siguiente forma.
+
+5 aciertos -> 1 millon de euros
+4 aciertos -> 10mil
+3 aciertos -> mil
+1-2 -> 10 euros
+0 -> prueba suerte la siguiente vez
+
+numeros del sistema -> 9,12,3,5,11
+numeros del usuario -> 12,9,6,10,3
+
+
+ */
+
+
+import java.util.Scanner;
+
 public class Bonoloto {
 
-    /*
-    Realizar el juego de la bonoloto
-    2 cadenas de numeross
-        - num sistema
-        - num usuario
-    de primeras sistema guardara 5 numeros aleatorios 1-20
-    una vez generado
-    el sistema pedira al usuario que introduzca sus numeros
+    private int[] numerosSistema = new int[5];
 
-    el sistema debera decidir si he ganado un premio. Para ello los premios se reparten de la siguiente
-    forma:
-    5 aciertos-> gana 1M
-    4 aciertps -> gana 10mil
-    3 aciertos -> mil
-    1-2 -> 10 euros
-    0 -> prueba suerte la siguiente vez
-
-    numero sistema -> 9, 12, 3, 5, 11
-    numero del usuario -> 12, 9, 6, 10, 3
-     */
-    private int[] numerosSitema= new int[5];
     private int[] numerosUsuario = new int[5];
-    public void generarNumerosSistema(){
-        for (int i = 0; i < numerosSitema.length; i++) {
-            numerosSitema[i] = (int) (Math.random()*20)+1;
+    private Scanner scanner = new Scanner(System.in);
+
+    public void generarNumerosSsistema(){
+        for (int i = 0; i < numerosSistema.length; i++) {
+            numerosSistema[i] = (int) (Math.random()*20)+1;
         }
     }
-    public void pedirNumeroUsuario(){
+    public void pedirNumerosUsuario (){
         for (int i = 0; i < numerosUsuario.length; i++) {
-
             int numero;
             do {
                 System.out.println("Introduce un valor");
                 numero= scanner.nextInt();
-
-            }while (numero<1);
+                if (numero<1 || numero>20){
+                    System.out.println("Este numero no es válido");
+                }
+            } while (numero<1 || numero>20);
+            numerosUsuario[i] = numero;
         }
     }
+
+    // todo comprobar cuántos aciertos tiene el usuario (recorriendo e ir sumando de uno en uno) y ver cuanta pasta ha ganado el usuario.
+
 }
