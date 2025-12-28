@@ -31,6 +31,7 @@ public class Main2 {
         System.out.println("2. mover izquierda");
         System.out.println("3. mover derecha");
         System.out.println("4. invertir");
+        System.out.println("5. Rotar por pares");
         int opcion;
         do {
             System.out.println("Que quieres hacer");
@@ -67,14 +68,16 @@ public class Main2 {
                         numeros[numeros.length-1-i] = temporal;
                     }
                 }
+                // que roten de 2 en dos
+                case 5->{
+                    for (int i = 0; i < numeros.length; i+=2) {
+                        int temporal = numeros[i];
+                        numeros[i] = numeros[i+1];
+                        numeros[i+1] = temporal;
+                    }
+                }
             }
-        }while (opcion!=5);
-
-
-        // todo min: 1:29:
-
-
-
+        }while (opcion!=6);
 
     }
 
