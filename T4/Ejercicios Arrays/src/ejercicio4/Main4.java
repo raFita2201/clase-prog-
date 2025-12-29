@@ -29,17 +29,18 @@ public class Main4 {
         }
 
         //SORTEO
-        for (int i = 0; i < 5; i++) {
-            int posAleatoria1 = azar.nextInt(5);
-            String temporal1 = bombo2[i];
+        for (int i = bombo1.length-1; i > 0; i--) {
+            int posAleatoria1 = azar.nextInt(i+1);
+            String temporal1 = bombo1[i];
             bombo1[i] = bombo1[posAleatoria1];
             bombo1[posAleatoria1]= temporal1;
-
-            // mezclar bombo2
-            int posAleatoria2 = azar.nextInt(5);
+        }
+        for (int i = bombo2.length-1; i > 0; i--) {
+            int posAleatoria2 = azar.nextInt(i+1);
             String temporal2 = bombo2[i];
             bombo2[i] = bombo2[posAleatoria2];
             bombo2[posAleatoria2] = temporal2;
+
         }
 
         // MOSTRAR RESULTADOS
@@ -49,7 +50,6 @@ public class Main4 {
         }
 
 
-        // todo en el sorteo no pueden repetirse los equipos, ni en los enfrentaminetos, bombo 1 vs bombo 2
 
     }
 
