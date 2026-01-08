@@ -1,25 +1,23 @@
-package resources;
-
 import controller.Colegio;
 import model.Alumno;
 import model.Profesor;
 
 public class MainColegio {
     public static void main(String[] args) {
+
+
         Profesor profesor = new Profesor();
-        Colegio colegio = new Colegio();
-        // alumnos = [], profesor = profesor
+        Colegio colegio = new Colegio(profesor);
+        // alumnos = [], profesor = null
+        // 0 alumnos
         colegio.matricularAlumno(new Alumno(1,2,3));
         colegio.matricularAlumno(new Alumno(1,2,3));
         colegio.matricularAlumno(new Alumno(1,2,3));
         colegio.matricularAlumno(new Alumno(1,2,3));
         colegio.matricularAlumno(new Alumno(1,2,3));
         colegio.matricularAlumno(new Alumno(1,2,3));
-       colegio.calificarAlumnos();
-       colegio.mostrarResultados();
-
-
+        // tengo matriculados 6 alumnos.
+        colegio.calificarAlumnos();
+        colegio.mostrarResultados();
     }
-
-
 }
