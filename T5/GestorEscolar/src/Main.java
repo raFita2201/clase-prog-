@@ -12,6 +12,7 @@ public class Main {
 - Profesor: ponerNotas(Alumno) asigna aleatorias; calcularMedia(Alumno) devuelve double.
 - Entrada: crear 3 Asignaturas, 1 Alumno, 1 Profesor; poner notas y mostrar media y notas.
      */
+    
     public static void main(String[] args) {
         //UML - diagrama de clases
         // id= 0 calificacion =0.0
