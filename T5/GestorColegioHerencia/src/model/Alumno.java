@@ -1,6 +1,6 @@
 package model;
 
-public class Alumno extends Persona{
+public final class Alumno extends Persona{
 
     private int numeroMatricula, cursoMatriculado;
     // getter / setter

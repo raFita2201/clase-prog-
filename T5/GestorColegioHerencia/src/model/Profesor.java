@@ -1,20 +1,52 @@
 package model;
 
-public class Profesor extends Persona {
+public abstract class Profesor extends Persona {
 
-    private String dni, correo;
+    private String nombre, apellido;
 
-    public Profesor(String dni, String correo){
-        this.dni = dni;
-        this.correo = correo;
+    private int salario;
+    private int nHoras;
+
+    public Profesor(){}
+
+    public Profesor(String nombre, String apellido, int salario, int nHoras){
+        this.nHoras = nHoras;
+        this.salario = salario;
     }
+
+
+    @Override
+    public void mostrarDatos() {
+        super.mostrarDatos();
+    }
+
+    // si eres abstracto, arrastras el método a la siguiente
+
 
     @Override
     public void saludar() {
         System.out.println("Yo como saludar lo hago de esta otr forma ");
     }
 
-    public void impartirClase(){
 
+
+    public void corregirExamen(){
+        System.out.println("Empezando el examen");
+    }
+    public int getSalario() {
+        return salario;
+    }
+
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
+
+    public int getnHoras() {
+        return nHoras;
+    }
+
+    public void setnHoras(int nHoras) {
+        this.nHoras = nHoras;
     }
 }
+
