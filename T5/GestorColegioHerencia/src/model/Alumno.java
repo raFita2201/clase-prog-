@@ -7,6 +7,9 @@ public final class Alumno extends Persona{
     // mostrarDatos
     // saludar
 
+    public Alumno(){}
+
+
     public Alumno(String nombre, String apellido, int numeroMatricula){
         super(nombre, apellido);
         this.numeroMatricula = numeroMatricula;

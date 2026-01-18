@@ -5,13 +5,14 @@ public abstract class Persona { // una clase abstracta no se puede utilizar.
 
 
     // constructor: PÚBLICOS, (lo que va en el paréntesis es una referencia)
-    // solo 1 constructor, el implícito queda enmascarado.
+    // solo 1 constructor, el implícito queda enmascarado. El vacío.
+    public Persona(){}
+
     public Persona(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
     }
-    // vacío
-    public Persona(){}
+
 
     public abstract void saludar(); // no tiene ninguna funcionalidad común. Quiero que tengan el metodo pero ellos deciden cómo saludar.
     // si no le voy a poner funcionalidad debo marcarlo como ABSTRACT.

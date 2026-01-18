@@ -10,7 +10,6 @@ public class Main {
         // Profesor profesor1 = new Profesor();
         //ArrayList<Persona> Lista = new ArrayList();
         // foreach -> Persona -> p.mostrarDatos()
-        ((Alumno)alumno2).realizarExamen();
         //alumno2.realizarExamen();
         alumno2.mostrarDatos();
 
@@ -21,7 +20,7 @@ public class Main {
 
 
         Persona interino1 = new Interino("Julio", "Iglesias", 123, 3, 4);
-        Interino interino2 = new Interino("maria","gonzales", 20000, 1, 2);
+        Interino interino2 = new Interino("María","Gonzales", 20000, 1, 2);
         interino1.saludar();
 
         //Fijo fijo1 = new Fijo("Celia");
@@ -30,6 +29,7 @@ public class Main {
         fijo2.pedirAumento(1000);
         fijo2.mostrarDatos();
         fijo2.realizarInspeccion();
+        Fijo fijo1 = new Fijo("Federico", "López", 19000, 30, 2);
 
 
         Director director1 = new Director("Seymour", "Skinner");
@@ -37,18 +37,21 @@ public class Main {
         director1.saludar();
         director1.realizarInspeccion();
 
-        ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
+        ArrayList<Persona> listaPersonas = new ArrayList<>();
         listaPersonas.add(alumno1);
-        //listaPersonas.add(alumno3);
-        //listaPersonas.add(alumno2);
+        listaPersonas.add(alumno2);
+        listaPersonas.add(alumno3);
+        listaPersonas.add(interino1);
+        listaPersonas.add(interino2);
         listaPersonas.add(fijo2);
+        listaPersonas.add(fijo1);
         listaPersonas.add(director1);
 
         for (Persona persona: listaPersonas){
             // presona.saludar();
             // presona.mostrarDatos();
             if (persona instanceof Inspector){
-                //((Inspector)(persona).realizarInspeccion;
+                //((Inspector)persona).realizarInspeccion;
             }
         }
 
