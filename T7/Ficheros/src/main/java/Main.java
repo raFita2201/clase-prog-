@@ -48,6 +48,25 @@ public class Main {
 
         // carpeta.createNewFile();
 
+        File inicio = new File("/Users/macrafa");
+        listadorCarpetas(inicio);
+
+
 
     }
+    public static void listadorCarpetas(File directorio){
+        File [] contenido = directorio.listFiles();
+
+        if (contenido != null){
+            for (File item : contenido) {
+                if (item.isDirectory()){
+                    System.out.println("Carpeta: "+item.getAbsolutePath());
+
+                    //RECURSIVIDAD
+                    //listadorCarpetas(item);
+                }
+            }
+        }
+    }
+
 }
