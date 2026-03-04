@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        // int numeros[] = new int[]{1, 2, 3, 4, 5, 6};
+        // int nú
+        // meros[] = new int[]{1, 2, 3, 4, 5, 6};
         // NullPointerException - ArrayIndexOutofBoundException- ArithException - InputMisMatchException
         Operaciones operaciones = new Operaciones();
         Scanner scanner = new Scanner(System.in);
@@ -18,7 +19,7 @@ public class Main {
             // código o códigos que puedan producir fallo
             System.out.println("Indicame el operando uno");
             int operando1 = scanner.nextInt();
-            System.out.println("Indicame el operando uno");
+            System.out.println("Indicame el operando dos");
             int operando2 = scanner.nextInt();
             operaciones.sumar(operando1,operando2); // va con la etiqueta que puede provocar error Arth
         } catch (InputMismatchException e){

@@ -1,12 +1,13 @@
 import java.io.File;
 import java.io.IOException;
 
+
 public class Main {
 
     public static void main(String[] args) {
+
         //File fichero = new File("src/main/java/resource/analisis_secundario.txt");
-        File carpeta = new File("src/main/java/resources/carpeta1");
-        // logico o fisico?
+        // lógico o fí sico?
         /*System.out.println("Informacion del fichero");
         if(fichero.exists()){
             System.out.println("Ruta absoluta es: "+fichero.getAbsolutePath());
@@ -25,11 +26,13 @@ public class Main {
                 // pongase en contacto con el admin
             }
         }*/
+        /*File carpeta = new File("src/main/java/resources/carpeta1");
+
         if (carpeta.isDirectory()) {
             /*for (String item : carpeta.list()) {
                 System.out.println(item);
             } */
-            for (File item: carpeta.listFiles()) {
+        /*for (File item: carpeta.listFiles()) {
                 System.out.println(item.getName());
                 System.out.println(item.isDirectory());
                 // sacar los ficheros de una subcarpeta
@@ -44,16 +47,25 @@ public class Main {
                     }
                 }
             }
-        }
+        }*/
 
         // carpeta.createNewFile();
 
-        File inicio = new File("/Users/macrafa");
-        listadorCarpetas(inicio);
 
+        Operaciones operaciones = new Operaciones();
+        //operaciones.leerFichero("src/main/java/resources");
+        //operaciones.leerContenidoFichero("src/main/java/resources/análisis.txt");
+        //operaciones.leerContenidoFicheroLineas("src/main/java/resources/análisis.txt");
+        //operaciones.descifrarContenidoFichero("src/main/java/resources/escritura.txt");
+        //operaciones.escrituraFichero("src/main/java/resources/escritura.txt");
 
 
     }
+
+    /*
+        File inicio = new File("/Users/macrafa");
+        listadorCarpetas(inicio);
+
     public static void listadorCarpetas(File directorio){
         File [] contenido = directorio.listFiles();
 
@@ -68,5 +80,6 @@ public class Main {
             }
         }
     }
+     */
 
 }
