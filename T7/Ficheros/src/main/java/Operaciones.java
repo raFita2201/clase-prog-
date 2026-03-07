@@ -3,17 +3,17 @@ import java.util.Scanner;
 
 public class Operaciones {
 
-    public void leerFichero(String path){
+    public void leerFichero(String path) {
         File file = new File(path);
         System.out.println(file.getName());
-        if (file.isDirectory()){
-            for (File item: file.listFiles()){
+        if (file.isDirectory()) {
+            for (File item : file.listFiles()) {
                 leerFichero(item.getAbsolutePath());
             }
         }
     }
 
-    public void leerContenidoFichero(String path){
+    public void leerContenidoFichero(String path) {
         //File _> FileReader
         File file = new File(path);
         FileReader fileReader = null;
@@ -34,7 +34,7 @@ public class Operaciones {
         } catch (IOException e) {
             System.out.println("No cuentas con los permisos suficientes");
             System.out.println("Ponte en contacto con tu administrador ");
-        }finally {
+        } finally {
             try {
                 fileReader.close();
             } catch (IOException e) {
@@ -44,7 +44,7 @@ public class Operaciones {
 
     }
 
-    public void leerContenidoFicheroLineas(String path){
+    public void leerContenidoFicheroLineas(String path) {
         File file = new File(path);
         FileReader fileReader = null;//no sería necesario inicializar este, basta con el de abajo (bufferedReader)
         BufferedReader bufferedReader = null;
@@ -70,7 +70,7 @@ public class Operaciones {
         }
     }
 
-    public void descifrarContenidoFichero(String path){
+    public void descifrarContenidoFichero(String path) {
         File file = new File(path);
         BufferedReader reader = null;
         Scanner scanner = new Scanner(System.in);
@@ -83,7 +83,7 @@ public class Operaciones {
             String[] numeros = linea.split(" ");
             for (String item : numeros) {
                 int codigo = Integer.parseInt(item);
-                System.out.print((char) (codigo/clave));
+                System.out.print((char) (codigo / clave));
             }
         } catch (FileNotFoundException e) {
             System.out.println("El fichero no es valido");
@@ -98,7 +98,7 @@ public class Operaciones {
         }
     }
 
-    public void escrituraFichero(String path){
+    public void escrituraFichero(String path) {
         File file = new File(path);
         FileWriter fileWriter = null;
         Scanner scanner = new Scanner(System.in);
@@ -110,7 +110,7 @@ public class Operaciones {
             scanner = new Scanner(System.in);
             System.out.println("dime que quieres que guarde en el fichero");
             String mensaje = scanner.nextLine();
-            for (int i = 0; i < mensaje.length(); i++ ){
+            for (int i = 0; i < mensaje.length(); i++) {
                 char letra = mensaje.charAt(i);
                 int codigo = (int) letra;
                 fileWriter.write(String.valueOf(codigo * clave)); // le doy un número ejemplo: 24, y lo cambia a String 24.
@@ -118,7 +118,7 @@ public class Operaciones {
             }
         } catch (IOException e) {
             System.out.println("Error en la escritura del fichero");
-        }finally {
+        } finally {
             try {
                 fileWriter.close();
             } catch (IOException | NullPointerException e) {
@@ -126,6 +126,30 @@ public class Operaciones {
             }
         }
 
+
+    }
+
+    public void escrituraSalto(String path){
+        File file = new File(path);
+        FileWriter fileWriter = null;
+        PrintWriter printWriter = null;
+        //BufferedWriter bufferedWriter = null; -> prácticamente el mismo uso, PrintWritter mas nuevo, mejor gestión de memoria
+
+        try {
+            printWriter = new PrintWriter(new FileWriter(file));
+            printWriter.println("1 Me imprime la linea dentro del fichero y luego salto de línea");
+            printWriter.println("2 Me imprime la linea dentro del fichero y luego salto de línea");
+            printWriter.println("3 Me imprime la linea dentro del fichero y luego salto de línea");
+            printWriter.println("4 Me imprime la linea dentro del fichero y luego salto de línea");
+        } catch (IOException e) {
+            System.out.println("Fallo en el proceso de escritura");
+        }finally {
+            try {
+            printWriter.close();
+            }catch (Exception e) {
+                System.out.printf("Fallo en el proceso de cerrado con error %s", e.getMessage());
+            }
+        }
 
     }
 }
