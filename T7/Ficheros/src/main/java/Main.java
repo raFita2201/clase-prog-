@@ -58,7 +58,7 @@ public class Main {
         //operaciones.leerContenidoFicheroLineas("src/main/java/resources/análisis.txt");
         //operaciones.descifrarContenidoFichero("src/main/java/resources/escritura.txt");
         //operaciones.escrituraFichero("src/main/java/resources/escritura.txt");
-        operaciones.escrituraSalto("src/main/java/resources/carpeta1/escritura_salto.txt");
+        //operaciones.escrituraSalto("src/main/java/resources/carpeta1/escritura_salto.txt");
 
 
 
