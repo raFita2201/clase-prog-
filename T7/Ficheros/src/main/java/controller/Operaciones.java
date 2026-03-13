@@ -1,4 +1,10 @@
+package controller;
+
+import model.Usuario;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Operaciones {
@@ -129,7 +135,7 @@ public class Operaciones {
 
     }
 
-    public void escrituraSalto(String path){
+    public void escrituraSalto(String path) {
         File file = new File(path);
         FileWriter fileWriter = null;
         PrintWriter printWriter = null;
@@ -141,14 +147,96 @@ public class Operaciones {
             printWriter.println("2 Me imprime la linea dentro del fichero y luego salto de línea");
             printWriter.println("3 Me imprime la linea dentro del fichero y luego salto de línea");
             printWriter.println("4 Me imprime la linea dentro del fichero y luego salto de línea");
+
         } catch (IOException e) {
             System.out.println("Fallo en el proceso de escritura");
-        }finally {
+        } finally {
             try {
-            printWriter.close();
-            }catch (Exception e) {
+                assert printWriter != null;
+                printWriter.close();
+            } catch (Exception e) {
                 System.out.printf("Fallo en el proceso de cerrado con error %s", e.getMessage());
             }
+        }
+
+    }
+
+    public void exportarUsuario(Usuario usuario) throws IOException {
+        // me das un usuario y lo escribo en la ruta de exportación.
+        File file = new File("src/main/java/resources/usuarios.csv");
+        PrintWriter printWriter = null;
+        //el fichero no está -> lo creas u escribes una línea
+
+        //el fichero si esta --> escribe el usuario
+        try {
+            file.createNewFile();
+            if (!file.exists()) {
+                printWriter = new PrintWriter(new FileWriter(file));
+                printWriter.println("nombre, apellido, dni");
+                // escribe el usuario //TODO el primero si no existe???
+                exportarUsuario(usuario);
+            } else {
+                printWriter = new PrintWriter(new FileWriter(file, true));
+                printWriter.println(usuario);
+            }
+        } catch (IOException e) {
+            System.out.println("Error en la creación del fichero");
+        } finally {
+            try {
+                printWriter.close();
+
+            } catch (Exception e) {
+                System.out.println("Fallo en el cerrado");
+                System.out.println(e.getMessage());
+            }
+        }
+
+
+    }
+
+    public List<Usuario> importarUsuario() {
+        File file = new File("src/main/java/resources/usuarios.csv");
+        BufferedReader reader = null;
+        List<Usuario> lista = new ArrayList<>();
+
+        try {
+
+            reader = new BufferedReader(new FileReader(file));
+            String linea = reader.readLine();
+            while ((linea = reader.readLine()) != null) {
+                String[] items = linea.split(","); //quiero pasarla a -> split -> usuario
+                Usuario usuario = new Usuario(items[0],items[1],items[2]);
+                lista.add(usuario);
+            }
+        } catch ( FileNotFoundException e) {
+            System.out.println("Ruta incorrecta, item no encontrado");
+            System.out.println(e.getMessage());
+        }catch (IOException e){
+            System.out.println("Error de lectura");
+            System.out.println(e.getMessage());
+        }
+        return lista;
+    }
+
+    public void escribirObjetos(String path){
+        File file = new File(path);
+        ObjectOutputStream objectOutputStream = null;
+
+        try {
+            objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+            //objectOutputStream.writeInt(76);
+            objectOutputStream.writeObject(new Usuario("Borja", "Martin", "123123"));
+        } catch (IOException e) {
+            System.out.println("Error en la escritura del fichero");
+            System.out.println(e.getMessage());
+        }finally {
+            try {
+                objectOutputStream.close();
+            } catch (IOException | NullPointerException e) {
+                System.out.println("Error en el cerraado");
+                System.out.println(e.getMessage());
+            }
+
         }
 
     }

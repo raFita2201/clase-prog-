@@ -1,8 +1,27 @@
 package model;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+
+    private final static Long serialVersionUID= 1L;
 
     private String nombre, apellido, dni;
+
+    public Usuario() {
+    }
+
+    public Usuario(String nombre, String apellido, String dni) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+    }
+
+    public void mostrarDatos() {
+        System.out.println("nombre = " + nombre);
+        System.out.println("apellido = " + apellido);
+        System.out.println("dni = " + dni);
+    }
 
     public String getNombre() {
         return nombre;
@@ -28,12 +47,10 @@ public class Usuario {
         this.dni = dni;
     }
 
-    public Usuario() {
-    }
-
-    public Usuario(String nombre, String apellido, String dni) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
+    @Override
+    public String toString() {
+        // Rafa, Sotolongo, 1234
+        return String.format("%s,%s,%s", nombre, apellido, dni); //me quito el super y le digo yo como se representa el objeto, en este caso: nombre, apellido, dni.
+        // le quito el salto de linea (\n) para utilizar le printWrtitter ahora.
     }
 }

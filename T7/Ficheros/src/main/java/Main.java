@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.IOException;
+import controller.Operaciones;
 
 
 public class Main {
@@ -59,30 +58,12 @@ public class Main {
         //operaciones.descifrarContenidoFichero("src/main/java/resources/escritura.txt");
         //operaciones.escrituraFichero("src/main/java/resources/escritura.txt");
         //operaciones.escrituraSalto("src/main/java/resources/carpeta1/escritura_salto.txt");
-
+        operaciones.escribirObjetos("src/main/java/resources/objetos.dat");
 
 
 
     }
 
-    /*
-        File inicio = new File("/Users/macrafa");
-        listadorCarpetas(inicio);
 
-    public static void listadorCarpetas(File directorio){
-        File [] contenido = directorio.listFiles();
-
-        if (contenido != null){
-            for (File item : contenido) {
-                if (item.isDirectory()){
-                    System.out.println("Carpeta: "+item.getAbsolutePath());
-
-                    //RECURSIVIDAD
-                    //listadorCarpetas(item);
-                }
-            }
-        }
-    }
-     */
 
 }
