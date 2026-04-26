@@ -11,7 +11,7 @@ public class DBConnection {
     public static Connection getConnection(){
 
         if (connection == null){
-            // la creo
+            // la creo:
             createConnection();
         }
         return connection;
